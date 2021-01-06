@@ -2,13 +2,13 @@ package PositiveTests;
 
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class CommunitiesPageTests extends TestBase {
 
 
-    @Before
+    @BeforeTest
     public void BeforeAction(){
         String Phone = "+11111111111";
         String Password = "qwerty";

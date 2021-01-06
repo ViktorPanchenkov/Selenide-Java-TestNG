@@ -9,10 +9,15 @@ import Pages.CategoriesPage;
 import Pages.CommunitiesPage;
 import Pages.LoginPage;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 
 public class TestBase {
 
@@ -24,7 +29,7 @@ public class TestBase {
 
 
 
-    @Before
+    @BeforeMethod
     public void SetUP(){
         System.setProperty("webdriver.chrome.driver", "/home/user/ChromeDriver/chromedriver");
         loginPage = new LoginPage();
@@ -34,8 +39,9 @@ public class TestBase {
       //  baseUrl = "http://192.168.88.89";
         browser = "chrome";
        // Selenide.open(baseUrl);
-
-
-
+    }
+    @AfterMethod
+    public void Close(){
+        WebDriverRunner.getWebDriver().quit();
     }
 }

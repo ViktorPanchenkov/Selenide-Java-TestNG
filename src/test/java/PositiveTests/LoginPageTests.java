@@ -2,7 +2,8 @@ package PositiveTests;
 
 import Pages.LoginPage;
 import org.junit.Assert;
-import org.junit.Test;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class LoginPageTests extends TestBase {
 

@@ -1,17 +1,17 @@
 package PositiveTests;
 
-import Pages.BuzzPage;
-import Pages.LoginPage;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
 public class BuzzPageTests extends TestBase {
 
 
 
-    @Before
+    @BeforeMethod
     public void BeforeAction(){
         String Phone = "+11111111111";
         String Password = "qwerty";
@@ -23,14 +23,14 @@ public class BuzzPageTests extends TestBase {
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 
-    @Test
+    @Test(priority = 2)
     public void FindBuzz(){
         String NameOfBuzz = "QA";
-      buzzPage.GotoBuzzTab().
+      buzzPage.
               SearchBuzz(NameOfBuzz);
         Assert.assertTrue(buzzPage.Is_Buzz_WasFound(NameOfBuzz));
     }
-    @Test
+    @Test(priority = 1)
     public void AddBuzz(){
         int Random = (int) (Math.random() * 10);
         String Title = "Buzz created by automation test" + Random;
@@ -44,10 +44,10 @@ public class BuzzPageTests extends TestBase {
                 ClcikOnSaveButton();
         Assert.assertTrue(buzzPage.IS_BuzzCreated(Title,Description));
     }
-    @Test
+    @Test(priority = 3)
     public void EditBuzz(){
         int Random = (int) (Math.random() * 10);
-        String NewBuzzTitle = "Updated by Selenium" + Random;
+        String NewBuzzTitle = "Updated by Selenium";
         String NewDescription = "Description By Selenium";
         buzzPage.GoToRandomBuzz().
                 GotoEditBuzzScreen().
@@ -56,14 +56,12 @@ public class BuzzPageTests extends TestBase {
                 ClcikOnSaveButton();
         Assert.assertTrue(buzzPage.IS_Buzz_Was_Updated(NewBuzzTitle));
     }
-    @Test
+    @Test(priority = 4)
     public void DeleteBuzz(){
-        buzzPage.GoToRandomBuzz().
+        String NameOfBuzz = "Updated by Selenium";
+        buzzPage.SearchBuzz(NameOfBuzz).
                 ClickOnDeleteBuzzButton();
         Assert.assertTrue(buzzPage.IS_Buzz_Was_Removed());
     }
-    @Test
-    public void  JustTest(){
 
-    }
 }

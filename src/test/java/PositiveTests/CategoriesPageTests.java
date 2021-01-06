@@ -2,15 +2,15 @@ package PositiveTests;
 
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CategoriesPageTests extends TestBase {
 
 
-    @Before
+    @BeforeTest
     public void BeforeAction(){
         String Phone = "+11111111111";
         String Password = "qwerty";
@@ -22,7 +22,6 @@ public class CategoriesPageTests extends TestBase {
         WebDriverRunner.getWebDriver().manage().window().maximize();
 
     }
-
     @Test
     public void AddCategory() {
         int Random = (int) (Math.random() *10);
