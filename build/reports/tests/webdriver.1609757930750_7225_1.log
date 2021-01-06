@@ -1,0 +1,177 @@
+[1609757930.974][INFO]: Starting ChromeDriver 86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378}) on port 23399
+[1609757930.974][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1609757931.202][INFO]: [a742cb65c10f714722436264dbb5e34f] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "/home/user/IdeaProjects/Selenide + Java + TestNG/build/downloads/1609757930687_7225_1",
+               "plugins.always_open_pdf_externally": true,
+               "profile.default_content_setting_values.automatic_downloads": 1
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "/home/user/IdeaProjects/Selenide + Java + TestNG/build/downloads/1609757930687_7225_1",
+            "plugins.always_open_pdf_externally": true,
+            "profile.default_content_setting_values.automatic_downloads": 1
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1609757931.202][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "/home/user/IdeaProjects/Selenide + Java + TestNG/build/downloads/1609757930687_7225_1"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "automatic_downloads": 1,
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1609757931.202][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1609757931.202][INFO]: Launching chrome: /usr/bin/google-chrome --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir=/tmp/.com.google.Chrome.XlOobY data:,
+[1609757931.444][WARNING]: This version of ChromeDriver has not been tested with Chrome version 87.
+[1609757931.467][INFO]: resolved localhost to ["127.0.0.1"]
+[1609757931.491][INFO]: resolved localhost to ["127.0.0.1"]
+[1609757931.551][INFO]: [a742cb65c10f714722436264dbb5e34f] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "87.0.4280.88",
+      "chrome": {
+         "chromedriverVersion": "86.0.4240.22 (398b0743353ff36fb1b82468f63a3a93b4e2e89e-refs/branch-heads/4240@{#378})",
+         "userDataDir": "/tmp/.com.google.Chrome.XlOobY"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:41675"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "linux",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "a742cb65c10f714722436264dbb5e34f"
+}
+[1609757931.610][INFO]: [a742cb65c10f714722436264dbb5e34f] COMMAND SetWindowRect {
+   "height": 768,
+   "width": 1366
+}
+[1609757931.610][INFO]: Waiting for pending navigations...
+[1609757931.611][INFO]: Done waiting for pending navigations. Status: ok
+[1609757931.713][INFO]: Waiting for pending navigations...
+[1609757931.714][INFO]: Done waiting for pending navigations. Status: ok
+[1609757931.714][INFO]: [a742cb65c10f714722436264dbb5e34f] RESPONSE SetWindowRect {
+   "height": 768,
+   "width": 1366,
+   "x": 77,
+   "y": 37
+}
+[1609757931.718][INFO]: [a742cb65c10f714722436264dbb5e34f] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1609757931.718][INFO]: [a742cb65c10f714722436264dbb5e34f] RESPONSE SetTimeouts
+[1609757931.724][INFO]: [a742cb65c10f714722436264dbb5e34f] COMMAND Navigate {
+   "url": "http://192.168.88.89"
+}
+[1609757931.724][INFO]: Waiting for pending navigations...
+[1609757931.724][INFO]: Done waiting for pending navigations. Status: ok
+[1609757931.767][INFO]: Waiting for pending navigations...
+[1609757932.252][INFO]: Done waiting for pending navigations. Status: ok
+[1609757932.252][INFO]: [a742cb65c10f714722436264dbb5e34f] RESPONSE Navigate
+[1609757932.273][INFO]: [a742cb65c10f714722436264dbb5e34f] COMMAND Quit {
+
+}
+[1609757932.323][INFO]: [a742cb65c10f714722436264dbb5e34f] RESPONSE Quit
