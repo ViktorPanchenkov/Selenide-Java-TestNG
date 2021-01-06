@@ -66,6 +66,7 @@ public class CommunitiesPageTests extends TestBase {
     }
     @Test
     public void CreateActiveNews(){
-
+     communitiesPage.GotoCommunityFromList(0).
+           GotoActiveNewsTab();
     }
 }
