@@ -1,5 +1,6 @@
 package Pages;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.commands.WaitUntil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
@@ -87,6 +88,16 @@ public class LoginPage {
             Assert.fail("Forgot password Screen is not Displayed!");
             return false;
         }
+    }
+
+    public boolean IS_Impossible_to_LogIn_With_Invalid_Phone(){
+
+           try{
+               WebElement InvalidPhoneError = $(By.xpath("//body/div[@id='root']/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]/span[2]/span[1]/*[1]")).shouldBe(visible);
+               return true;
+           } catch (AssertionError AssertError){
+               return false;
+           }
     }
 
 

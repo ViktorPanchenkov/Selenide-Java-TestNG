@@ -1,23 +1,13 @@
-package PositiveTests;
-import static com.codeborne.selenide.Configuration.browser;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Configuration.baseUrl;
+package NegativeTests;
 
 import Pages.*;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
-import org.junit.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 
-public class TestBase {
+import static com.codeborne.selenide.Configuration.browser;
 
+public class TestBaseNegative {
 
     BuzzPage buzzPage;
     LoginPage loginPage;
@@ -35,12 +25,13 @@ public class TestBase {
         categoriesPage = new CategoriesPage();
         communitiesPage = new CommunitiesPage();
         surveysPage = new SurveysPage();
-      //  baseUrl = "http://192.168.88.89";
+        //  baseUrl = "http://192.168.88.89";
         browser = "chrome";
-       // Selenide.open(baseUrl);
+        // Selenide.open(baseUrl);
     }
     @AfterMethod
     public void Close(){
         WebDriverRunner.getWebDriver().quit();
     }
 }
+

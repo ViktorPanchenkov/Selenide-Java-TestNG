@@ -2,9 +2,13 @@ package Pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.commands.As;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import sun.applet.AppletSecurityException;
 
 
 import java.util.ArrayList;
@@ -35,6 +39,7 @@ public class CommunitiesPage  extends BasePage {
     By EditCommunityButton = By.xpath("//span[contains(text(),'Edit Community')]");
     By AutomaticAprovalOFSurveysButton = By.xpath("//button[@name='surveyAutoReview']");
     By UpdateCommunityButton = By.xpath("//span[contains(text(),'Update Community')]");
+    By DeleteCommunityButton = By.xpath("//span[contains(text(),'Delete Permanently')]");
 
 
     public CommunitiesPage GotoCommunitiesTab() {
@@ -75,6 +80,10 @@ public class CommunitiesPage  extends BasePage {
         $(By.xpath("//div[@id='react-select-2-option-" + CategoryNumber + "']")).click();
         return this;
     }
+    public CommunitiesPage ClcikOnEditCommunityButton(){
+        $(EditCommunityButton).click();
+        return this;
+    }
 
     public CommunitiesPage AddImage() {
         $(ImageInput).sendKeys("/home/user/Desktop/гребля.jpg");
@@ -111,9 +120,116 @@ public class CommunitiesPage  extends BasePage {
         $(ActiveNewsTab).click();
         return this;
     }
+    public CommunitiesPage ClcikOnUpdateCommunityButton(){
+        $(UpdateCommunityButton).click();
+        return this;
+    }
+    public CommunitiesPage ClcikOnDeleteCommunityButton(){
+        $(DeleteCommunityButton).click();
+        WebElement DeleteConfirmation = $(By.xpath("//span[contains(text(),'Yes, Delete it!')]"));
+        DeleteConfirmation.click();
+        return this;
+    }
     public CommunitiesPage GotoInactiveNewsTab(){
         $(InactivnewsTab).click();
         return this;
+    }
+    public CommunitiesPage ClcikOnCreateNewsButton(){
+        $(CreateNewsButton).click();
+        return this;
+    }
+    public CommunitiesPage ClickOnTheBlockCommunityButton(){
+        $(BlockCommubityButton).shouldBe(Condition.visible);
+        WebElement BlockButtonStatus = $(BlockCommubityButton);
+        if (BlockButtonStatus.getText().equals("BLOCK COMMUNITY")){
+            $(BlockCommubityButton).click();
+            WebElement BlockConfirmation = $(By.xpath("//div[@class='ant-modal-footer']/button[2]"));
+            BlockConfirmation.click();
+        } else {
+            Assert.fail("Community already Blocked!");
+        }
+        return this;
+    }
+    public CommunitiesPage ClickOnTheUnblockCommunityButton(){
+        $(UnblockCommuntyButton).shouldBe(Condition.visible);
+        WebElement UnblockButtonStatus = $(UnblockCommuntyButton);
+        if(UnblockButtonStatus.getText().equals("UNBLOCK COMMUNITY")){
+            $(UnblockCommuntyButton).click();
+            WebElement UnblockConfirmation = $(By.xpath("//div[@class='ant-modal-footer']/button[2]"));
+            UnblockConfirmation.click();
+        } else {
+            Assert.fail("Community was not blocked!");
+        }
+        return this;
+    }
+    public CommunitiesPage GotoInactiveNews(){
+        try {
+            WebElement InactiveNews = $(By.xpath("//tbody/tr[1]/td[2]")).shouldBe(Condition.visible);
+            InactiveNews.click();
+        } catch (AssertionError AssertError){
+            Assert.fail("In this community no any Inactive news!");
+        }
+        return this;
+    }
+    public CommunitiesPage ClickOnDeleteNewsButton(){
+
+            $(DeleteNewsButton).click();
+            WebElement DeleteConfirmation = $(By.xpath("//div[@class='ant-modal-footer']/button[2]")).shouldBe(Condition.visible);
+            DeleteConfirmation.click();
+            return this;
+
+
+    }
+    public boolean IS_News_Was_Deleted(){
+        try {
+            WebElement NewsWasDeletedText = $(By.xpath("//span[contains(text(),'News deleted successfully.')]")).shouldBe(Condition.visible);
+            return true;
+        } catch (AssertionError AssertError){
+            Assert.fail("News was not Deleted!");
+            return false;
+        }
+    }
+    public boolean IS_News_Was_Created(){
+        try {
+            WebElement NewsCreatedText = $(By.xpath("//span[contains(text(),'News created successfully.')]")).shouldBe(Condition.visible);
+            return true;
+        }catch (AssertionError AssertError){
+            Assert.fail("News was not Created!");
+            return false;
+        }
+    }
+    public boolean IS_Community_Was_Bloked(){
+
+        try {
+            $(UnblockCommuntyButton).shouldBe(Condition.visible);
+            WebElement CommunityUpdatedPopUp = $(By.xpath("//span[contains(text(),'Community updated successfully.')]")).shouldBe(Condition.visible);
+            $(BlockCommubityButton).shouldHave(Condition.text("UNBLOCK COMMUNITY"));
+            return true;
+        }catch (AssertionError AssertError){
+            Assert.fail("Community was not blocked!");
+            return false;
+        }
+    }
+
+    public boolean IS_CommunityWas_Unbloked(){
+
+       try {
+           $(UnblockCommuntyButton).shouldHave(Condition.text("BLOCK COMMUNITY"));
+           return true;
+       } catch (AssertionError AssertError){
+           Assert.fail("Community was not unblocked!");
+           return false;
+       }
+    }
+
+    public boolean IS_Community_Was_Updated(){
+        try {
+            WebElement CommunityUpdatedPopUP = $(By.xpath("//span[contains(text(),'Community saved successfully.')]"));
+            return true;
+        } catch (AssertionError AssertError){
+            Assert.fail("Community was not updated!");
+            return false;
+        }
     }
 
 
@@ -152,7 +268,7 @@ public class CommunitiesPage  extends BasePage {
 
     public boolean IS_Community_Created(){
         try {
-            WebElement CommunityCreatedPopUP = $(By.xpath("//span[contains(text(),'News created successfully.')]")).shouldBe(Condition.visible);
+            WebElement CommunityCreatedPopUP = $(By.xpath("//span[contains(text(),'Community created successfully.')]")).shouldBe(Condition.visible);
             return true;
         } catch (AssertionError AssertError){
             Assert.fail("Community was not Created!");
@@ -174,6 +290,15 @@ public class CommunitiesPage  extends BasePage {
             return true;
         } catch (AssertionError AssertError){
             Assert.fail("There is no any user in list!");
+            return false;
+        }
+    }
+    public boolean IS_Community_Deleted(){
+        try {
+            WebElement CommunityDeletedPoPUP = $(By.xpath("//span[contains(text(),'Community deleted successfully.')]")).shouldBe(Condition.visible);
+            return true;
+        } catch (AssertionError AssertError){
+            Assert.fail("Community was not deleted!");
             return false;
         }
     }
