@@ -29,14 +29,15 @@ public class TestBase {
 
     @BeforeMethod
     public void SetUP(){
-        System.setProperty("webdriver.chrome.driver", "/home/user/ChromeDriver/chromedriver");
+      //  System.setProperty("webdriver.chrome.driver", "/home/user/ChromeDriver/chromedriver");
         loginPage = new LoginPage();
         buzzPage = new BuzzPage();
         categoriesPage = new CategoriesPage();
         communitiesPage = new CommunitiesPage();
         surveysPage = new SurveysPage();
       //  baseUrl = "http://192.168.88.89";
-        browser = "chrome";
+      //  browser = "chrome";
+        browser ="firefox";
        // Selenide.open(baseUrl);
     }
     @AfterMethod
